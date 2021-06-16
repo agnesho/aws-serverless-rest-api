@@ -10,8 +10,9 @@ exports.handler = async (event, context) => {
   const { username } = event.pathParameters;
 
   const params = {
+    // change TableName as required, "BrainhackDB" is a placeholder
     TableName: "BrainhackDB",
-    // changed "Item" to "Key" to delete from database using username as identifier
+    // delete from database using username as identifier
     Key: {
       username: username,
     },
@@ -22,6 +23,7 @@ exports.handler = async (event, context) => {
     responseBody = JSON.stringify(data);
     statusCode = 204;
   } catch (err) {
+    // change "location" as required
     responseBody = `Unable to delete location: ${err}`;
     statusCode = 403;
   }

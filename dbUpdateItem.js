@@ -10,11 +10,12 @@ exports.handler = async (event, context) => {
   const { username, address } = JSON.parse(event.body);
 
   const params = {
+    // change TableName as required, "BrainhackDB" is a placeholder
     TableName: "BrainhackDB",
     Key: {
-      username: username
+      username: username,
     },
-    // letter 'n' behind colon dis arbitrary
+    // letter 'n' behind colon is arbitrary
     UpdateExpression: "set address = :n",
     // here we specify what we want to update it to
     ExpressionAttributeValues: {
@@ -27,6 +28,7 @@ exports.handler = async (event, context) => {
     responseBody = JSON.stringify(data);
     statusCode = 204;
   } catch (err) {
+    // change "location" as required
     responseBody = `Unable to update location: ${err}`;
     statusCode = 403;
   }

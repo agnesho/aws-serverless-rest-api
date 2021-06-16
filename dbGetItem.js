@@ -1,3 +1,5 @@
+/// dbGetItem.js: get single item ///
+
 "use strict";
 const AWS = require("aws-sdk");
 
@@ -10,6 +12,7 @@ exports.handler = async (event, context) => {
   const { username } = event.pathParameters;
 
   const params = {
+    // change TableName as required, "BrainhackDB" is a placeholder
     TableName: "BrainhackDB",
     Key: {
       username: username,
@@ -17,11 +20,11 @@ exports.handler = async (event, context) => {
   };
 
   try {
-    // "Scan" iterates over entire table and return results
     const data = await documentClient.get(params).promise();
     responseBody = JSON.stringify(data);
     statusCode = 200;
   } catch (err) {
+    // change "location" as required
     responseBody = `Unable to get location: ${err}`;
     statusCode = 403;
   }

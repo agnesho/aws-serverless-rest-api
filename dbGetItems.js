@@ -1,3 +1,5 @@
+/// dbGetItems.js: get all items ///
+
 "use strict";
 const AWS = require("aws-sdk");
 
@@ -8,6 +10,7 @@ exports.handler = async (event, context) => {
   let statusCode = 0;
 
   const params = {
+    // change TableName as required, "BrainhackDB" is a placeholder
     TableName: "BrainhackDB",
   };
 
@@ -17,6 +20,7 @@ exports.handler = async (event, context) => {
     responseBody = JSON.stringify(data.Items);
     statusCode = 200;
   } catch (err) {
+    // change "location" as required
     responseBody = `Unable to get location: ${err}`;
     statusCode = 403;
   }

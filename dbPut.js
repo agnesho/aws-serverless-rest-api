@@ -10,10 +10,11 @@ exports.handler = async (event, context) => {
   const { username, address } = JSON.parse(event.body);
 
   const params = {
+    // change TableName as required, "BrainhackDB" is a placeholder
     TableName: "BrainhackDB",
     Item: {
       username: username,
-      address: address
+      address: address,
     },
   };
 
@@ -22,6 +23,7 @@ exports.handler = async (event, context) => {
     responseBody = JSON.stringify(data);
     statusCode = 201;
   } catch (err) {
+    // change "location" as required
     responseBody = `Unable to put location: ${err}`;
     statusCode = 403;
   }
