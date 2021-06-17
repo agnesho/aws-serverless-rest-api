@@ -1,6 +1,6 @@
 # aws-serverless-rest-api
 
-### Build serverless REST API with AWS Lambda, API Gateway and DynamoDB to perform CRUD operations
+### Build serverless REST API with AWS Lambda, API Gateway and DynamoDB
 
 #### AWS DynamoDB
 1. Set up DynamoDB database
@@ -47,7 +47,7 @@
     - Copy and paste Invoke URL into application
 
 
-#### Video Resources
+#### Other Resources
 - AWS Serverless tutorial [Part I](https://youtu.be/VGerk8hrP9U)
 - AWS Serverless tutorial [Part II](https://youtu.be/xJvfcg9dW4U)
         
